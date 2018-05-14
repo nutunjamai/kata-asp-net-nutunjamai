@@ -4,7 +4,7 @@ using System.Text;
 
 namespace itb.Shared
 {
-    class Product : IProductRepository
+    public class Product
     {
         public int ID { get; set; }
         public string Name { get; set; }
