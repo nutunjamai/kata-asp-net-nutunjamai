@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Net.Sockets;
+using System.Threading.Tasks;
 using itb.Shared;
 using Dapper;
 
@@ -52,12 +53,12 @@ namespace itb.Repositories
             }
         }
 
-        public IEnumerable<Product> GetProducts()
+        public Task<IEnumerable<Product>> GetProducts()
         {
             using (var conn = _conn)
             {
                 conn.Open();
-                return conn.Query<Product>("SELECT *, ProductId as id FROM product");
+                return conn.QueryAsync<Product>("SELECT *, ProductId as id FROM product");
             }
         }
     }
