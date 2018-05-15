@@ -17,16 +17,19 @@ namespace AspNetCoreMvc.Controllers
         {
             _prodRepo = prodRepo;
         }
+
         // GET: Product1
         public async Task<ActionResult> Index()
         {
-            return View(await _prodRepo.GetProducts());
+            var products = await _prodRepo.GetProducts();
+            return View(products);
         }
 
         // GET: Product1/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var products = _prodRepo.GetProduct(id);
+            return View(products);
         }
 
         // GET: Product1/Create
@@ -43,7 +46,9 @@ namespace AspNetCoreMvc.Controllers
             try
             {
                 // TODO: Add insert logic here
-
+                var name = collection["Name"];
+                Product prod = new Product() {Name = name};
+                _prodRepo.AddProduct(prod);
                 return RedirectToAction(nameof(Index));
             }
             catch

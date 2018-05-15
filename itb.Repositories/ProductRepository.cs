@@ -23,7 +23,7 @@ namespace itb.Repositories
             using (var conn = _conn)
             {
                 conn.Open();
-                return conn.Execute("INSERT INTO product{name} VALUES (@name)", prod);
+                return conn.Execute("INSERT INTO product(Name) VALUES (@Name)", prod);
             }
         }
 
