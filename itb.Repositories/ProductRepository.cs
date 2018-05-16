@@ -49,7 +49,7 @@ namespace itb.Repositories
             using (var conn = _conn)
             {
                 conn.Open();
-                return conn.Query<Product>("SELECT *, ProductId as id FROM product WHERE ProductId = @id").FirstOrDefault();
+                return conn.Query<Product>("SELECT *, ProductId as id FROM product WHERE ProductId = @id", new {id}).FirstOrDefault();
             }
         }
 
