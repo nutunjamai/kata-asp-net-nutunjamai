@@ -47,7 +47,7 @@ namespace AspNetCoreMvc.Controllers
             {
                 // TODO: Add insert logic here
                 var name = collection["Name"];
-                Product prod = new Product() {Name = name};
+                var prod = new Product() {Name = name};
                 _prodRepo.AddProduct(prod);
                 return RedirectToAction(nameof(Index));
             }
@@ -72,7 +72,7 @@ namespace AspNetCoreMvc.Controllers
             {
                 // TODO: Add update logic here
                 var name = collection["Name"];
-                Product prod = new Product() { Name = name };
+                var prod = new Product { Id = id, Name = name };
                 _prodRepo.UpdateProduct(prod);
                 return RedirectToAction(nameof(Index));
             }
@@ -96,8 +96,7 @@ namespace AspNetCoreMvc.Controllers
             try
             {
                 // TODO: Add delete logic here
-                var name = collection["Name"];
-                Product prod = new Product() { Name = name };
+               
                 _prodRepo.DeleteProduct(id);
 
                 return RedirectToAction(nameof(Index));
