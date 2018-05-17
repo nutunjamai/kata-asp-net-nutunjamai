@@ -29,7 +29,7 @@ namespace AspNetCoreMvc.Controllers
 
         // GET: api/Api/5
         [HttpGet("{id}", Name = "Get")]
-        public Product Get(int id)
+            Task<Product> Get(int id)
         {
             return _prodRepo.GetProduct(id);
         }

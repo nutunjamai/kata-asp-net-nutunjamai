@@ -44,7 +44,7 @@ namespace itb.Repositories
                 return conn.Execute("UPDATE product SET Name = @name WHERE ProductId = @id", prod);
             }
         }
-        public Product GetProduct(int id)
+        public Task<Product> GetProduct(int id)
         {
             using (var conn = _conn)
             {

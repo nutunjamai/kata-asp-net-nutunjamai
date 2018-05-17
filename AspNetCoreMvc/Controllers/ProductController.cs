@@ -71,7 +71,9 @@ namespace AspNetCoreMvc.Controllers
             try
             {
                 // TODO: Add update logic here
-
+                var name = collection["Name"];
+                Product prod = new Product() { Name = name };
+                _prodRepo.UpdateProduct(prod);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -94,6 +96,9 @@ namespace AspNetCoreMvc.Controllers
             try
             {
                 // TODO: Add delete logic here
+                var name = collection["Name"];
+                Product prod = new Product() { Name = name };
+                _prodRepo.DeleteProduct(id);
 
                 return RedirectToAction(nameof(Index));
             }
