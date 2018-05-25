@@ -113,6 +113,10 @@ _TeamCity*
 # DotCover is a Code Coverage Tool
 *.dotCover
 
+#Environent app settings
+*.Development.json
+*.Release.json
+
 # Visual Studio code coverage results
 *.coverage
 *.coveragexml
